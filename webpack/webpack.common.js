@@ -14,9 +14,13 @@ const config = {
         use: ["babel-loader"],
       },
       {
-        test: /\.jpe?g|png$/,
-        exclude: /node_modules/,
-        use: ["url-loader", "file-loader"],
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {},
+          },
+        ],
       },
     ],
   },

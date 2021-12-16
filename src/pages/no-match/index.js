@@ -1,1 +1,1 @@
-export { NoMatch } from "./no-match.component";
+export { NoMatch } from "./NoMatch";

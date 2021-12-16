@@ -1,1 +1,1 @@
-export { SignUp } from "./sign-up.component";
+export { SignUp } from "./SignUp";

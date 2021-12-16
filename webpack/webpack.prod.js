@@ -1,7 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const port = process.env.PORT || 3000;
-
 module.exports = {
   mode: "production",
 

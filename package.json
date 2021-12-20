@@ -8,7 +8,10 @@
     "start": "canned -p 5000 ./server",
     "dev": "webpack-dev-server --env development",
     "prebuild": "rimraf dist",
-    "build": "webpack --env production"
+    "build": "webpack --env production",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc"
   },
   "jest": {
     "snapshotSerializers": [
@@ -46,11 +49,16 @@
     "css-loader": "^6.5.1",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.5",
     "mini-css-extract-plugin": "^2.4.5",
+    "prettier": "^2.5.1",
     "react-hot-loader": "^4.13.0",
     "rimraf": "^3.0.2",
     "sass": "^1.45.0",

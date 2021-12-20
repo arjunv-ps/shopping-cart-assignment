@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { HeaderCart } from "../header-cart";
-import Logo from "../../../static/images/logo.png";
-import "./header.scss";
+import { HeaderCart } from '../header-cart';
+import Logo from '../../../static/images/logo.png';
+import './header.scss';
 
 export const Header = () => {
   console.log(Logo);

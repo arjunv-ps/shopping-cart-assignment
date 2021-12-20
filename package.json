@@ -4,11 +4,23 @@
   "description": "This is a shopping cart coding exercise",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "canned -p 5000 ./server",
     "dev": "webpack-dev-server --env development",
     "prebuild": "rimraf dist",
     "build": "webpack --env production"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    }
   },
   "author": "",
   "license": "MIT",
@@ -24,17 +36,27 @@
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
     "@hot-loader/react-dom": "^17.0.1",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-jest": "^27.4.5",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.4.5",
     "mini-css-extract-plugin": "^2.4.5",
     "react-hot-loader": "^4.13.0",
     "rimraf": "^3.0.2",
     "sass": "^1.45.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
+    "typescript": "^4.5.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",

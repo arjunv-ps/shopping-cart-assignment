@@ -24,7 +24,7 @@ export const Header = () => {
           <Link className={styles.headerRightSectionNavNavItem} to="/login">
             SignIn
           </Link>
-          <Link className={styles.headerRightSectionNavNavItem} to="/register">
+          <Link className={styles.headerRightSectionNavNavItem} to="/sign-up">
             Register
           </Link>
           <HeaderCart />

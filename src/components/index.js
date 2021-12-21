@@ -4,3 +4,4 @@ export { HeaderCart } from './header-cart';
 export { Input } from './input';
 export { SignUp } from './sign-up';
 export { Footer } from './footer';
+export { Login } from './login';

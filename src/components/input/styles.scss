@@ -1,0 +1,24 @@
+@import '../../varibles.scss';
+
+.input-container:focus-within label {
+  color: $input-border-focus-color;
+}
+
+.label {
+  display: block;
+  color: $input-border-color;
+}
+
+.input {
+  border-color: $input-border-color;
+  border-width: 0 0 2px;
+  outline: none;
+  width: 100%;
+  &:focus {
+    border-color: $input-border-focus-color;
+  }
+}
+
+.input:focus ~ .label {
+  color: $input-border-focus-color;
+}

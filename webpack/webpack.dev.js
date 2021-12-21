@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const commonPaths = require('./common-paths');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 
@@ -21,7 +22,19 @@ module.exports = {
     rules: [
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:6]',
+                exportLocalsConvention: 'camelCase'
+              }
+            }
+          },
+          { loader: 'sass-loader' }
+        ]
       },
       {
         test: /\.(js)$/,
@@ -30,7 +43,13 @@ module.exports = {
       }
     ]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new ESLintPlugin({
+      failOnError: false,
+      emitWarning: true
+    })
+  ],
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom'
@@ -41,6 +60,9 @@ module.exports = {
     port: port,
     historyApiFallback: true,
     open: true,
-    hot: true
+    hot: true,
+    client: {
+      progress: true
+    }
   }
 };

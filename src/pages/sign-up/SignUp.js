@@ -1,10 +1,10 @@
 import React from 'react';
-import { Header } from '../../components';
+import { SignUp as SignUpSection } from '../../components';
 
 export function SignUp() {
   return (
     <>
-      <Header />
+      <SignUpSection />
     </>
   );
 }

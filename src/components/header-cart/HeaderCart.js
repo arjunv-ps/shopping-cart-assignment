@@ -1,10 +1,11 @@
 import React from 'react';
+import CartSvg from '../../../static/images/cart.svg';
+import styles from './styles.scss';
 
 export const HeaderCart = () => {
   return (
-    <div>
-      <span>icon</span>
-      item
+    <div className={styles.headerCart}>
+      <img className={styles.headerCartImage} src={CartSvg} alt="cart" />0 Items
     </div>
   );
 };

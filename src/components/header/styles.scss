@@ -1,0 +1,47 @@
+@import '../../varibles.scss';
+
+.header {
+  min-height: 7rem;
+  padding: 1rem 0;
+  -moz-box-shadow: 0 10px 10px -10px rgb(0 0 0 / 37%);
+  box-shadow: 0 10px 10px -10px rgb(0 0 0 / 37%);
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+}
+
+.header--left-section {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.header--left-section--nav--nav-item {
+  margin-left: 2rem;
+}
+
+.header--right-section--nav--nav-item {
+  margin-left: 1.5rem;
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width: $md-max-width) {
+  .header {
+    min-height: 4rem;
+    padding: 0;
+  }
+  .header--left-section--nav--nav-item {
+    display: none;
+  }
+  .header--right-section--nav--nav-item {
+    display: none;
+  }
+  .header--left-section--logo {
+    width: 8rem;
+  }
+}

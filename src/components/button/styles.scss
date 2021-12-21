@@ -1,0 +1,13 @@
+@import '../../varibles.scss';
+
+.button {
+  display: block;
+}
+
+.button--button {
+  background-color: $button-background-color;
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  color: #fff;
+}

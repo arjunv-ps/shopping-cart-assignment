@@ -1,0 +1,25 @@
+@import '../../varibles.scss';
+
+.sign-up {
+  display: flex;
+  margin: 0 auto;
+  padding: 3rem 10% 1rem;
+  max-width: 1080px;
+}
+
+.sign-up--section {
+  flex: 1 auto;
+}
+
+.sign-up--section--input-container {
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: $md-max-width) {
+  .sign-up {
+    display: block;
+  }
+  .sign-up--section {
+    margin-bottom: 1rem;
+  }
+}

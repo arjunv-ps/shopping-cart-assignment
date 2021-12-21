@@ -15,6 +15,14 @@
   "plugins": ["react"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/no-render-return-value": "off"
+    "react/no-render-return-value": "off",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "no-unused-vars": "warn"
   }
+  // "prettier/prettier": [
+  //   "error",
+  //   {
+  //     "endOfLine": "auto"
+  //   }
+  // ]
 }

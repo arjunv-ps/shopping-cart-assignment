@@ -1,0 +1,19 @@
+@import '../../varibles.scss';
+
+.header-cart {
+  display: flex;
+  align-items: center;
+  background: lightgray;
+  padding: 0.75rem;
+  margin-top: 1rem;
+}
+
+.header-cart--image {
+  margin-right: 1rem;
+  width: 3rem;
+}
+@media only screen and (max-width: $md-max-width) {
+  .header-cart {
+    margin: 0;
+  }
+}

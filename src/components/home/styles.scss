@@ -1,0 +1,11 @@
+.home {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  & > div,
+  article {
+    -webkit-box-shadow: 0 8px 6px -6px #00000038;
+    -moz-box-shadow: 0 8px 6px -6px #00000038;
+    box-shadow: 0 8px 6px -6px #00000038;
+  }
+}

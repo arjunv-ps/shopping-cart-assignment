@@ -1,0 +1,38 @@
+@import '../../varibles.scss';
+
+.product-card {
+  display: flex;
+  padding: 2rem 0;
+}
+
+.product-card--image-container {
+  flex: 1 auto;
+}
+
+.product-card--image-container--image {
+  width: 20rem;
+}
+
+.product-card--information {
+  flex: 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 50%;
+  & > * {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: $sm-max-width) {
+  .product-card--image-container--image {
+    width: 100%;
+  }
+  .product-card--information {
+    width: 50%;
+  }
+  .product-card {
+    padding: 2rem 1rem;
+  }
+}

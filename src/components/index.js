@@ -5,3 +5,6 @@ export { Input } from './input';
 export { SignUp } from './sign-up';
 export { Footer } from './footer';
 export { Login } from './login';
+export { ProductCard } from './product-card';
+export { Home } from './home';
+export { ProductCarousel } from './product-carousel';

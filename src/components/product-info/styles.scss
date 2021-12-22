@@ -1,0 +1,87 @@
+@import '../../varibles.scss';
+
+.product-info {
+  padding: 0.75rem;
+}
+
+.product-info--product-info-container {
+  display: flex;
+}
+
+.product-info--product-info-container--image-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  img {
+    max-width: 100%;
+  }
+}
+
+.product-info--product-info-container--information-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+
+.product-info--product-info-container--information-container--description {
+  background-color: $backgroud--description-color;
+  padding: 0.5rem;
+}
+
+@media only screen and (min-width: $md-min-width) {
+  .product-info {
+    padding: 0.75rem;
+    width: 50%;
+  }
+  .mobile-button {
+    display: none;
+  }
+  .product-info--product-info-container--information-container--description {
+    margin-bottom: 0;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: $lg-min-width) {
+  .product-info {
+    width: 25%;
+  }
+  .product-info--product-info-container {
+    flex-direction: column;
+  }
+  .product-info--product-info-container--image-container {
+    width: 100%;
+  }
+
+  .product-info--product-info-container--information-container {
+    width: 100%;
+  }
+  .tablet-button {
+    display: none;
+  }
+  .product-info--bottom-section {
+    display: flex;
+  }
+  .product-info--bottom-section--price {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+  .product-info--bottom-section--button {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: $lg-max-width) {
+  .product-info--bottom-section {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: $md-max-width) {
+  .tablet-button {
+    display: none;
+  }
+}

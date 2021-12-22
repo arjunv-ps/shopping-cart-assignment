@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
 import styles from './styles.scss';
 
-export const Button = ({ type, label, ...props }) => {
+export const Button = ({ type, label, className, ...props }) => {
   return (
-    <div className={styles.button}>
+    <div className={clsx(styles.button, className)}>
       <button type={type} {...props} className={styles.buttonButton}>
         {label}
       </button>
@@ -15,10 +16,12 @@ export const Button = ({ type, label, ...props }) => {
 
 Button.defaultProps = {
   type: 'button',
-  label: ''
+  label: '',
+  className: ''
 };
 
 Button.propTypes = {
   label: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  className: PropTypes.string
 };

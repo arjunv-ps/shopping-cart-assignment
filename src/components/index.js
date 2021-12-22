@@ -8,3 +8,6 @@ export { Login } from './login';
 export { ProductCard } from './product-card';
 export { Home } from './home';
 export { ProductCarousel } from './product-carousel';
+export { Products } from './products';
+export { ProductInfo } from './product-info';
+export { ProductCategory } from './product-category';

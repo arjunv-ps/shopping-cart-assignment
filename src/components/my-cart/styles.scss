@@ -1,0 +1,55 @@
+@import '../../varibles.scss';
+
+.my-cart--banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #fff;
+  margin: 1rem;
+  img {
+    width: 8rem;
+  }
+  p {
+    margin-left: 1rem;
+  }
+}
+
+.my-cart--footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  max-width: 1080px;
+  margin: 0 auto;
+  p {
+    text-align: center;
+  }
+}
+
+.my-cart--checkout-button--content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my-cart--header {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  h2 {
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+  }
+}
+
+.my-cart {
+  height: 100%;
+  padding-top: 3rem;
+}
+.product-list-container {
+  height: calc(100% - 4rem);
+  overflow: auto;
+}

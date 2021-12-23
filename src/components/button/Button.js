@@ -21,7 +21,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.node,
   type: PropTypes.string,
   className: PropTypes.string
 };

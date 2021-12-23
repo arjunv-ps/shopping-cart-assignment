@@ -1,0 +1,16 @@
+@import '../../varibles.scss';
+
+.product--page {
+  height: calc(100% - 6.5rem);
+  max-width: 1080px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: $md-min-width) {
+  .product--page {
+    height: calc(100% - 162px);
+    max-width: 1080px;
+    margin: 0px auto;
+  }
+}

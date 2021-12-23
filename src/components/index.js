@@ -11,3 +11,5 @@ export { ProductCarousel } from './product-carousel';
 export { Products } from './products';
 export { ProductInfo } from './product-info';
 export { ProductCategory } from './product-category';
+export { MyCart } from './my-cart';
+export { CartCard } from './cart-card';

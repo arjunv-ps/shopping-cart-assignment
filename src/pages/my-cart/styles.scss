@@ -1,0 +1,13 @@
+@import '../../varibles.scss';
+.my-cart-page {
+  height: calc(100% - 12rem);
+  background-color: lightgray;
+}
+
+@media only screen and (min-width: $md-min-width) {
+  .my-cart-page {
+    height: calc(100% - 17.5rem);
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+}

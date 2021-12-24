@@ -1,0 +1,12 @@
+@import '../../varibles.scss';
+
+.home-page {
+  overflow: auto;
+  height: calc(100% - 4rem);
+}
+
+@media only screen and (min-width: $md-min-width) {
+  .home-page {
+    height: calc(100% - 8rem);
+  }
+}

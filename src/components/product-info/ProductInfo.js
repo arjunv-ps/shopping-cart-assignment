@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from '..';
 
 import styles from './styles.scss';
+import Apple from '../../../static/images/products/fruit-n-veg/apple.jpg';
 
 export const ProductInfo = ({ product }) => {
   return (
@@ -10,7 +11,7 @@ export const ProductInfo = ({ product }) => {
       <h3>{product.name}</h3>
       <div className={styles.productInfoProductInfoContainer}>
         <div className={styles.productInfoProductInfoContainerImageContainer}>
-          <img src={product.image} alt={product.name} />
+          <img src={Apple} alt={product.name} />
         </div>
         <div className={styles.productInfoProductInfoContainerInformationContainer}>
           <p className={styles.productInfoProductInfoContainerInformationContainerDescription}>
@@ -33,7 +34,11 @@ ProductInfo.defaultProps = {
     name: '',
     price: '',
     description: '',
-    image: ''
+    imageURL: '',
+    stock: '',
+    category: '',
+    sku: '',
+    id: ''
   }
 };
 
@@ -42,6 +47,10 @@ ProductInfo.propTypes = {
     name: PropTypes.string,
     price: PropTypes.string,
     description: PropTypes.string,
-    image: PropTypes.string
+    imageURL: PropTypes.string,
+    stock: PropTypes.string,
+    category: PropTypes.string,
+    sku: PropTypes.string,
+    id: PropTypes.string
   })
 };

@@ -62,3 +62,5 @@ typings/
 
 # The dist folder
 dist/
+
+.env.development

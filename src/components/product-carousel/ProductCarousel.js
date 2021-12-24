@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Offer1 from '../../../static/images/offers/offer1.jpg';
-import Offer2 from '../../../static/images/offers/offer2.jpg';
+import Image from '../../../static/images/offers/offer1.jpg';
 import styles from './styles.scss';
 import clsx from 'clsx';
 
-const offerImages = [
-  { imageUrl: Offer1, alt: 'offer-1' },
-  { imageUrl: Offer2, alt: 'offer-2' }
-];
-
-export const ProductCarousel = ({ images }) => {
+export const ProductCarousel = ({ banners }) => {
   const [currentSlide, setCurrentSlide] = useState(1);
 
   const handleButtonToggle = (number) => () => {
@@ -23,10 +17,10 @@ export const ProductCarousel = ({ images }) => {
   };
 
   const showSlides = (n) => {
-    if (n > images.length) {
+    if (n > banners.length) {
       setCurrentSlide(1);
     } else if (n < 1) {
-      setCurrentSlide(images.length);
+      setCurrentSlide(banners.length);
     } else {
       setCurrentSlide(n);
     }
@@ -35,14 +29,15 @@ export const ProductCarousel = ({ images }) => {
   return (
     <div>
       <div className={styles.slideshowContainer}>
-        {images.map((image, index) => (
-          <div
-            style={{ display: currentSlide === index + 1 ? 'block' : 'none' }}
-            key={image.alt}
-            className="mySlides fade">
-            <img src={image.imageUrl} alt={image.alt} style={{ width: '100%' }} />
-          </div>
-        ))}
+        {Array.isArray(banners) &&
+          banners.map((banner, index) => (
+            <div
+              style={{ display: currentSlide === index + 1 ? 'block' : 'none' }}
+              key={banner.id}
+              className="mySlides fade">
+              <img src={Image} alt={banner.bannerImageAlt} style={{ width: '100%' }} />
+            </div>
+          ))}
 
         <a className={styles.prev} onClick={handleButtonToggle(-1)}>
           PREV
@@ -51,12 +46,13 @@ export const ProductCarousel = ({ images }) => {
           NEXT
         </a>
         <div style={{ textAlign: 'center' }}>
-          {images.map((_, index) => (
-            <span
-              key={index}
-              className={clsx(styles.dot, { [styles.active]: currentSlide === index + 1 })}
-              onClick={handleDotClick(index + 1)}></span>
-          ))}
+          {Array.isArray(banners) &&
+            banners.map((_, index) => (
+              <span
+                key={index}
+                className={clsx(styles.dot, { [styles.active]: currentSlide === index + 1 })}
+                onClick={handleDotClick(index + 1)}></span>
+            ))}
         </div>
       </div>
       <br />
@@ -65,14 +61,25 @@ export const ProductCarousel = ({ images }) => {
 };
 
 ProductCarousel.defaultProps = {
-  images: offerImages
+  banners: [
+    {
+      bannerImageAlt: '',
+      bannerImageUrl: '',
+      id: '',
+      isActive: '',
+      order: ''
+    }
+  ]
 };
 
 ProductCarousel.propTypes = {
-  images: PropTypes.arrayOf(
+  banners: PropTypes.arrayOf(
     PropTypes.shape({
-      imageUrl: PropTypes.string,
-      alt: PropTypes.string
+      bannerImageAlt: PropTypes.string,
+      bannerImageUrl: PropTypes.string,
+      id: PropTypes.string,
+      isActive: PropTypes.string,
+      order: PropTypes.string
     })
   )
 };

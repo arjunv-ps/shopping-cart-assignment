@@ -3,6 +3,12 @@
 .product-card {
   display: flex;
   padding: 2rem 0;
+  &:nth-child(2n - 1) {
+    flex-direction: row-reverse;
+    .product-card--image-container {
+      text-align: end;
+    }
+  }
 }
 
 .product-card--image-container {
@@ -23,6 +29,9 @@
   & > * {
     text-align: center;
   }
+  & > p {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-width: $sm-max-width) {
@@ -31,6 +40,9 @@
   }
   .product-card--information {
     width: 50%;
+    & > p {
+      width: auto;
+    }
   }
   .product-card {
     padding: 2rem 1rem;

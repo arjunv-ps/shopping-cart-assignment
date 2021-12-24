@@ -15,6 +15,7 @@ export default function App() {
           <Route element={<SignUp />} path="/sign-up" />
           <Route element={<Home />} path="/home" />
           <Route element={<Products />} path="/products" />
+          <Route element={<Products />} path="/products/:categoryId" />
           <Route element={<MyCart />} path="/my-cart" />
           <Route element={<NoMatch />} path="*" />
         </Routes>

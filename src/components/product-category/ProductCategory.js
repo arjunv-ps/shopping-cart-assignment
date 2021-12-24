@@ -1,43 +1,77 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import clsx from 'clsx';
 
 import styles from './styles.scss';
 import { Link } from 'react-router-dom';
 
-const catogries = [
-  { name: 'Fruits & Vegetables' },
-  { name: 'Bakery Cakes and Diary' },
-  { name: 'Beverages' }
-];
-
-export const ProductCategory = () => {
+export const ProductCategory = ({ categories }) => {
   const [show, setShow] = useState(false);
 
   const handleToggleMenu = () => {
     setShow(!show);
   };
 
-  console.log('productCategoryListContainer', styles);
+  const categoriesList = Array.isArray(categories)
+    ? categories.filter((category) => category.enabled)
+    : [];
 
   return (
     <>
       <div className={styles.productCategoryListContainer}>
-        {catogries.map((category) => (
-          <Link className={styles.productCategoryListContainerCategory} key={category.name} to="#">
+        {categoriesList.map((category) => (
+          <Link
+            className={styles.productCategoryListContainerCategory}
+            key={category.id}
+            to={`/products/${category.id}`}>
             {category.name}
           </Link>
         ))}
       </div>
       <div className={styles.dropdown}>
         <button onClick={handleToggleMenu} className={styles.dropbtn}>
-          Dropdown
+          Categories
         </button>
         <div id="myDropdown" className={clsx(styles.dropdownContent, { [styles.show]: show })}>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          {categoriesList.map((category) => (
+            <Link
+              className={styles.productCategoryListContainerCategory}
+              key={category.id}
+              to={`/products/${category.id}`}>
+              {category.name}
+            </Link>
+          ))}
         </div>
       </div>
     </>
   );
+};
+
+ProductCategory.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      key: PropTypes.string,
+      description: PropTypes.string,
+      enabled: PropTypes.bool,
+      order: PropTypes.number,
+      imageUrl: PropTypes.string,
+      id: PropTypes.string
+    })
+  )
+};
+
+ProductCategory.defaultProps = {
+  categories: [
+    {
+      name: '',
+      key: '',
+      description: '',
+      enabled: true,
+      order: 1,
+      imageUrl: '',
+      id: ''
+    }
+  ]
 };

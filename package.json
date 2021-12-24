@@ -30,6 +30,7 @@
   "dependencies": {
     "canned": "^0.3.12",
     "clsx": "^1.1.1",
+    "dotenv": "^10.0.0",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
     "@hot-loader/react-dom": "^17.0.1",
@@ -49,6 +51,7 @@
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
+    "dotenv-webpack": "^7.0.3",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "eslint": "^8.5.0",

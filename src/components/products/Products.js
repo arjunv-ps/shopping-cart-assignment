@@ -1,50 +1,32 @@
 import React from 'react';
 import { ProductCategory, ProductInfo } from '..';
 import styles from './styles.scss';
+import { API_URL } from '../../constants';
 
-import Apple from '../../../static/images/products/fruit-n-veg/apple.jpg';
+import { useFetch } from '../../hooks';
+import { useParams } from 'react-router-dom';
 
-const products = [
-  {
-    name: 'Fresho Kiwi - Green, 3psc',
-    price: '12',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lorem diam.',
-    image: Apple
-  },
-  {
-    name: 'Test apple - Green, 3psc',
-    price: '22',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lorem diam.',
-    image: Apple
-  },
-  {
-    name: 'Test apple - Green, 3psc',
-    price: '22',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lorem diam.',
-    image: Apple
-  },
-  {
-    name: 'Test apple - Green, 3psc',
-    price: '22',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lorem diam.',
-    image: Apple
-  }
-];
+const PRODUCTS_URL = `${API_URL}products`;
+const CATEGORIES_URL = `${API_URL}categories`;
 
 export const Products = () => {
+  const { data: categories } = useFetch(CATEGORIES_URL);
+  const { data: products } = useFetch(PRODUCTS_URL);
+  const { categoryId } = useParams();
+
+  const productList =
+    categoryId && Array.isArray(products)
+      ? products.filter((product) => product.category === categoryId)
+      : products;
+
   return (
     <div className={styles.products}>
       <div>
-        <ProductCategory />
+        <ProductCategory categories={categories} />
       </div>
       <div className={styles.productsListContainer}>
-        {products.map((product, index) => (
-          <ProductInfo key={index} product={product} />
-        ))}
+        {Array.isArray(productList) &&
+          productList.map((product, index) => <ProductInfo key={index} product={product} />)}
       </div>
     </div>
   );

@@ -18,7 +18,6 @@ export const Products = () => {
     categoryId && Array.isArray(products)
       ? products.filter((product) => product.category === categoryId)
       : products;
-
   return (
     <div className={styles.products}>
       <div>

@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '..';
 
 import styles from './styles.scss';
 import Apple from '../../../static/images/products/fruit-n-veg/apple.jpg';
+import { CartContext } from '../../context/cart/cart.provider';
 
 export const ProductInfo = ({ product }) => {
+  const { addItem } = useContext(CartContext);
+
+  const handleBuyClick = () => {
+    addItem(product);
+  };
+
   return (
     <div className={styles.productInfo}>
       <h3>{product.name}</h3>
@@ -17,13 +24,25 @@ export const ProductInfo = ({ product }) => {
           <p className={styles.productInfoProductInfoContainerInformationContainerDescription}>
             {product.description}
           </p>
-          <Button className={styles.mobileButton} label={`Buy Now @ RS${product.price}`} />
+          <Button
+            onClick={handleBuyClick}
+            className={styles.mobileButton}
+            label={`Buy Now @ RS${product.price}`}
+          />
         </div>
       </div>
-      <Button className={styles.tabletButton} label={`Buy Now @ RS${product.price}`} />
+      <Button
+        onClick={handleBuyClick}
+        className={styles.tabletButton}
+        label={`Buy Now @ RS${product.price}`}
+      />
       <div className={styles.productInfoBottomSection}>
         <span className={styles.productInfoBottomSectionPrice}>MRP Rs.{product.price}</span>
-        <Button className={styles.productInfoBottomSectionButton} label={`Buy Now`} />
+        <Button
+          onClick={handleBuyClick}
+          className={styles.productInfoBottomSectionButton}
+          label={`Buy Now`}
+        />
       </div>
     </div>
   );

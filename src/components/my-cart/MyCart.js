@@ -1,56 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+
 import { Button, CartCard } from '..';
 import styles from './styles.scss';
 
 import LowetPrice from '../../../static/images/lowest-price.png';
 
-import Apple from '../../../static/images/products/fruit-n-veg/apple.jpg';
+import { CartContext } from '../../context/cart/cart.provider';
 
-const products = [
-  {
-    name: 'Fresho Kiwi - Green, 3psc',
-    price: 12,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lorem diam.',
-    image: Apple,
-    quantity: 4
-  },
-  {
-    name: 'Test apple - Green, 3psc',
-    price: 22,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lorem diam.',
-    image: Apple,
-    quantity: 4
-  },
-  {
-    name: 'Test apple - Green, 3psc',
-    price: 22,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lorem diam.',
-    image: Apple,
-    quantity: 4
-  },
-  {
-    name: 'Test apple - Green, 3psc',
-    price: 22,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lorem diam.',
-    image: Apple,
-    quantity: 4
-  }
-];
+export const MyCart = ({ hideHeader }) => {
+  const { cartItems } = useContext(CartContext);
 
-export const MyCart = () => {
   return (
-    <div className={styles.myCart}>
-      <div className={styles.myCartHeader}>
-        <h2>My Cart</h2>
-        <span> ({1} items)</span>
-      </div>
+    <div className={styles.myCart} style={hideHeader ? { paddingTop: 0 } : {}}>
+      {!hideHeader && (
+        <div className={styles.myCartHeader}>
+          <h2>My Cart</h2>
+          <span> ({1} items)</span>
+        </div>
+      )}
       <div className={styles.productListContainer}>
         <>
-          {products.map((product, index) => (
+          {cartItems.map((product, index) => (
             <CartCard key={index} product={product} />
           ))}
           <div className={styles.myCartBanner}>
@@ -74,4 +45,12 @@ export const MyCart = () => {
       </div>
     </div>
   );
+};
+
+MyCart.propTypes = {
+  hideHeader: PropTypes.bool
+};
+
+MyCart.defaultProps = {
+  hideHeader: false
 };

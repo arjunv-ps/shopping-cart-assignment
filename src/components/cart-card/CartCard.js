@@ -31,7 +31,7 @@ export const CartCard = ({ product }) => {
           </div>
         </div>
       </div>
-      <div className={styles.cartCardRightSection}>Rs{product.price}</div>
+      <div className={styles.cartCardRightSection}>Rs{product.quantity * product.price}</div>
     </div>
   );
 };

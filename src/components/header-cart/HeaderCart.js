@@ -5,6 +5,7 @@ import { MyCart } from '..';
 import CartSvg from '../../../static/images/cart.svg';
 import { CartContext } from '../../context/cart/cart.provider';
 import styles from './styles.scss';
+import { useNavigate } from 'react-router-dom';
 
 export const HeaderCart = () => {
   const { cartItemsCount } = useContext(CartContext);
@@ -13,6 +14,13 @@ export const HeaderCart = () => {
   const handleToggleMenu = () => {
     setShow(!show);
   };
+
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/my-cart');
+    setShow(false);
+  }
 
   return (
     <>
@@ -33,7 +41,7 @@ export const HeaderCart = () => {
               X
             </button>
           </div>
-          <MyCart hideHeader />
+          <MyCart handleProceedClick={handleClick} hideHeader />
         </div>
       </div>
     </>

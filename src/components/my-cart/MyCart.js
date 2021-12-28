@@ -8,8 +8,8 @@ import LowetPrice from '../../../static/images/lowest-price.png';
 
 import { CartContext } from '../../context/cart/cart.provider';
 
-export const MyCart = ({ hideHeader }) => {
-  const { cartItems } = useContext(CartContext);
+export const MyCart = ({ hideHeader, handleProceedClick }) => {
+  const { cartItems, cartTotal } = useContext(CartContext);
 
   return (
     <div className={styles.myCart} style={hideHeader ? { paddingTop: 0 } : {}}>
@@ -35,10 +35,11 @@ export const MyCart = ({ hideHeader }) => {
         <p>Promocode can be applied on payment page</p>
         <Button
           className={styles.myCartCheckoutButton}
+          onClick={handleProceedClick}
           label={
             <div className={styles.myCartCheckoutButtonContent}>
               <span>Proceed to Checkout</span>
-              <span>Rs.187 &gt;</span>
+              <span>Rs.{cartTotal} &gt;</span>
             </div>
           }
         />
@@ -48,9 +49,11 @@ export const MyCart = ({ hideHeader }) => {
 };
 
 MyCart.propTypes = {
-  hideHeader: PropTypes.bool
+  hideHeader: PropTypes.bool,
+  handleProceedClick: PropTypes.func
 };
 
 MyCart.defaultProps = {
-  hideHeader: false
+  hideHeader: false,
+  handleProceedClick: () => null
 };

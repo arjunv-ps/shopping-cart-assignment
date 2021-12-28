@@ -1,10 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { addItemToCart, getCartItemsCount, removeItemFromCart } from './cart.utils';
+import { addItemToCart, getCartItemsCount, getCartTotal, removeItemFromCart } from './cart.utils';
 
 export const CartContext = createContext({
   cartItemsCount: 0,
+  cartTotal: 0,
   cartItems: [],
   addItem: () => {},
   removeItem: () => {}
@@ -13,6 +14,7 @@ export const CartContext = createContext({
 export default function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [cartItemsCount, setCartItemsCount] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
 
   const addItem = (item) => {
     setCartItems(addItemToCart(cartItems, item));
@@ -24,6 +26,7 @@ export default function CartProvider({ children }) {
 
   useEffect(() => {
     setCartItemsCount(getCartItemsCount(cartItems));
+    setCartTotal(getCartTotal(cartItems));
   }, [cartItems]);
 
   return (
@@ -32,6 +35,7 @@ export default function CartProvider({ children }) {
         value={{
           addItem,
           cartItems,
+          cartTotal,
           cartItemsCount,
           removeItem
         }}>

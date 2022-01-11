@@ -41,12 +41,24 @@
   .product-info--product-info-container--information-container--description {
     margin-bottom: 0;
     height: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 5.2rem;
   }
 }
 
 @media only screen and (min-width: $lg-min-width) {
   .product-info {
     width: 25%;
+  }
+  .product--info--header {
+    min-height: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .product-info--product-info-container {
     flex-direction: column;

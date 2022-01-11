@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import styles from './styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export const ProductCategory = ({ categories }) => {
   const [show, setShow] = useState(false);
+  const { categoryId } = useParams();
 
   const handleToggleMenu = () => {
     setShow(!show);
@@ -20,9 +21,19 @@ export const ProductCategory = ({ categories }) => {
   return (
     <>
       <div className={styles.productCategoryListContainer}>
+        <Link
+          className={clsx(styles.productCategoryListContainerCategory, {
+            [styles.productCategoryListContainerCategoryActive]: !categoryId
+          })}
+          key="all"
+          to={`/products`}>
+          All
+        </Link>
         {categoriesList.map((category) => (
           <Link
-            className={styles.productCategoryListContainerCategory}
+            className={clsx(styles.productCategoryListContainerCategory, {
+              [styles.productCategoryListContainerCategoryActive]: categoryId === category.id
+            })}
             key={category.id}
             to={`/products/${category.id}`}>
             {category.name}

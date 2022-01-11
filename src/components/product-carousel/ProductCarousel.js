@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Image from '../../../static/images/offers/offer1.jpg';
 import styles from './styles.scss';
 import clsx from 'clsx';
 
@@ -35,7 +34,15 @@ export const ProductCarousel = ({ banners }) => {
               style={{ display: currentSlide === index + 1 ? 'block' : 'none' }}
               key={banner.id}
               className="mySlides fade">
-              <img src={Image} alt={banner.bannerImageAlt} style={{ width: '100%' }} />
+              <img
+                src={
+                  require(`../../assets/images/offers/${
+                    banner.bannerImageUrl.split('/').pop().split('.')[0]
+                  }.jpg`).default
+                }
+                alt={banner.bannerImageAlt}
+                style={{ width: '100%' }}
+              />
             </div>
           ))}
 

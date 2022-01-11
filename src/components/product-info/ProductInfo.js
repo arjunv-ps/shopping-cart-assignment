@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Button } from '..';
 
 import styles from './styles.scss';
-import Apple from '../../../static/images/products/fruit-n-veg/apple.jpg';
 import { CartContext } from '../../context/cart/cart.provider';
 
 export const ProductInfo = ({ product }) => {
@@ -12,13 +11,20 @@ export const ProductInfo = ({ product }) => {
   const handleBuyClick = () => {
     addItem(product);
   };
-
   return (
     <div className={styles.productInfo}>
-      <h3>{product.name}</h3>
+      <h3 className={styles.productInfoHeader}>{product.name}</h3>
       <div className={styles.productInfoProductInfoContainer}>
         <div className={styles.productInfoProductInfoContainerImageContainer}>
-          <img src={Apple} alt={product.name} />
+          <img
+            src={
+              require(`../../assets/images/products/${product.imageURL
+                .split('/')
+                .slice(-2)
+                .join('/')}`).default
+            }
+            alt={product.name}
+          />
         </div>
         <div className={styles.productInfoProductInfoContainerInformationContainer}>
           <p className={styles.productInfoProductInfoContainerInformationContainerDescription}>

@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './styles.scss';
-import Apple from '../../../static/images/products/fruit-n-veg/apple.jpg';
 import { Button } from '..';
 import { CartContext } from '../../context/cart/cart.provider';
 
@@ -12,7 +11,15 @@ export const CartCard = ({ product }) => {
     <div className={styles.cartCard}>
       <div className={styles.cartCardLeftSection}>
         <div>
-          <img src={Apple} alt={product.name} />
+          <img
+            src={
+              require(`../../assets/images/products/${product.imageURL
+                .split('/')
+                .slice(-2)
+                .join('/')}`).default
+            }
+            alt={product.name}
+          />
         </div>
         <div className={styles.cartCardInfoContainer}>
           <h3>{product.name}</h3>
@@ -38,7 +45,7 @@ export const CartCard = ({ product }) => {
 
 CartCard.defaultProps = {
   product: {
-    image: '',
+    imageURL: '',
     name: '',
     price: '',
     quantity: ''
@@ -47,7 +54,7 @@ CartCard.defaultProps = {
 
 CartCard.propTypes = {
   product: PropTypes.shape({
-    image: PropTypes.string,
+    imageURL: PropTypes.string,
     name: PropTypes.string,
     price: PropTypes.number,
     quantity: PropTypes.number

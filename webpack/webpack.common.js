@@ -9,9 +9,9 @@ require('dotenv').config({ path: './.env' });
 
 const config = {
   resolve: {
-    alias: {
-      Rootdir: path.join(__dirname, '../')
-    }
+    // alias: {
+    //   Rootdir: path.join(__dirname, '../')
+    // }
   },
   output: {
     path: commonPaths.outputPath,

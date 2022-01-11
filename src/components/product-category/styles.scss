@@ -64,6 +64,9 @@
     color: #b5b5b5;
     font-weight: bold;
   }
+  .product-category--list-container--category-active {
+    color: black;
+  }
 }
 
 @media only screen and (max-width: $lg-max-width) {

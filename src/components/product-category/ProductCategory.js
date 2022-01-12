@@ -45,9 +45,19 @@ export const ProductCategory = ({ categories }) => {
           Categories
         </button>
         <div id="myDropdown" className={clsx(styles.dropdownContent, { [styles.show]: show })}>
+          <Link
+            className={clsx(styles.productCategoryListContainerCategory, {
+              [styles.activeItem]: !categoryId
+            })}
+            key="all"
+            to={`/products`}>
+            All
+          </Link>
           {categoriesList.map((category) => (
             <Link
-              className={styles.productCategoryListContainerCategory}
+              className={clsx(styles.productCategoryListContainerCategory, {
+                [styles.activeItem]: categoryId === category.id
+              })}
               key={category.id}
               to={`/products/${category.id}`}>
               {category.name}

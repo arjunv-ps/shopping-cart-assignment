@@ -40,13 +40,17 @@
   }
   .product-info--product-info-container--information-container--description {
     margin-bottom: 0;
-    height: 100%;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 5.2rem;
+    height: 9.6rem;
+  }
+  .product--info--header {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -83,6 +87,16 @@
   }
   .product-info--bottom-section--button {
     width: 50%;
+  }
+  .product-info--product-info-container--information-container--description {
+    margin-bottom: 0;
+    height: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 5.2rem;
   }
 }
 

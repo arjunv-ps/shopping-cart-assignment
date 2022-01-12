@@ -43,6 +43,9 @@
 .dropdown a:hover {
   background-color: #ddd;
 }
+.dropdown a.active-item {
+  background-color: #ddd;
+}
 
 .show {
   display: block;
@@ -69,7 +72,7 @@
   }
 }
 
-@media only screen and (max-width: $lg-max-width) {
+@media only screen and (max-width: $md-max-width) {
   .product-category--list-container {
     display: none;
   }

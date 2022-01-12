@@ -1,15 +1,27 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '..';
+import { API_URL } from '../../constants';
 
 import styles from './styles.scss';
 import { CartContext } from '../../context/cart/cart.provider';
 
+const ADD_TO_CART_URL = `${API_URL}addToCart`;
+
 export const ProductInfo = ({ product }) => {
   const { addItem } = useContext(CartContext);
 
-  const handleBuyClick = () => {
-    addItem(product);
+  const handleBuyClick = async () => {
+    try {
+      const response = await fetch(ADD_TO_CART_URL, {
+        method: 'POST',
+        body: JSON.stringify(product)
+      });
+      await response.json();
+      addItem(product);
+    } catch (error) {
+      console.log('errr', error);
+    }
   };
   return (
     <div className={styles.productInfo}>
